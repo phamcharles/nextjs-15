@@ -3,10 +3,11 @@ import clsx from "clsx";
 import Image from "next/image";
 import { lusitana } from "@/app/ui/fonts";
 import { fetchLatestInvoices } from "@/app/lib/data";
+import { Invoice } from "@/app/lib/definitions";
 
 export default async function LatestInvoices() {
   // const latestInvoices = await fetchLatestInvoices();
-  const latestInvoices = [];
+  const latestInvoices: Invoice[] = [];
 
   return (
     <div className="flex w-full flex-col md:col-span-4">
