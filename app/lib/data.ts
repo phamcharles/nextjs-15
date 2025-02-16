@@ -17,11 +17,11 @@ export async function fetchRevenue() {
     // Don't do this in production :)
 
     console.log("Fetching revenue data...");
-    await new Promise((resolve) => setTimeout(resolve, 8000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
     const data = await sql<Revenue[]>`SELECT * FROM revenue`;
 
-    console.log("Data fetch completed after 8 seconds.");
+    console.log("Data fetch completed after 2 seconds.");
 
     return data;
   } catch (error) {
@@ -63,11 +63,11 @@ export async function fetchCardData() {
          FROM invoices`;
 
     console.log("Fetching card data...");
-    await new Promise((resolve) => setTimeout(resolve, 6000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const data = await Promise.all([invoiceCountPromise, customerCountPromise, invoiceStatusPromise]);
 
-    console.log("Data fetch completed after 6 seconds.");
+    console.log("Data fetch completed after 1 second.");
 
     const numberOfInvoices = Number(data[0][0].count ?? "0");
     const numberOfCustomers = Number(data[1][0].count ?? "0");
